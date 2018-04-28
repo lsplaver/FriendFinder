@@ -9,8 +9,8 @@
     <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script> -->
-    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery.js"></script> -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script>
     <!-- <script src="main.js"></script> -->
@@ -37,7 +37,7 @@
             <input type="url" class="form-control" id="userPhoto" placeholder="http://yoursite.com/yourpicture" required wtx-context="">
         </div>
         <div class="form-group">
-            <label for="questionOne">Question One</label>
+            <label for="questionOne">You are an outdoors type of person who prefers to be out hiking ot camping rather than cooped up in an office.</label>
             <select class="form-control" id="questionOneSelect">
                 <option>1</option>
                 <option>2</option>
@@ -52,7 +52,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="questionTwo">Question Two</label>
+            <label for="questionTwo">Your prefer to read science-fiction and fantasy novels.</label>
             <select class="form-control" id="questionTwoSelect">
                 <option>1</option>
                 <option>2</option>
@@ -67,7 +67,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="questionThree">Question Three</label>
+            <label for="questionThree">You prefer to play multiplayer games.</label>
             <select class="form-control" id="questionThreeSelect">
                 <option>1</option>
                 <option>2</option>
@@ -82,7 +82,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="questionFour">Question Four</label>
+            <label for="questionFour">You are someone who makes friends easily and is an outgoing personality.</label>
             <select class="form-control" id="questionFourSelect">
                 <option>1</option>
                 <option>2</option>
@@ -97,7 +97,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="questionFive">Question Five</label>
+            <label for="questionFive">You prefer to do analysis and support along with coding rather than only one or the other.</label>
             <select class="form-control" id="questionFiveSelect">
                 <option>1</option>
                 <option>2</option>
@@ -112,7 +112,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="questionSix">Question Six</label>
+            <label for="questionSix">You often prefer a nice evening by yourself or with a small group of close friends instead of a loud or large outing.</label>
             <select class="form-control" id="questionSixSelect">
                 <option>1</option>
                 <option>2</option>
@@ -127,7 +127,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="questionSeven">Question Seven</label>
+            <label for="questionSeven">You enjoy taking apart / building computers and other tech hardware along with troubleshooting and maintaining them.</label>
             <select class="form-control" id="questionSevenSelect">
                 <option>1</option>
                 <option>2</option>
@@ -142,7 +142,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="questionEight">Question Eight</label>
+            <label for="questionEight">You like to get together with friends for a night computer gaming and/or tabletop role playing game sessions.</label>
             <select class="form-control" id="questionEightSelect">
                 <option>1</option>
                 <option>2</option>
@@ -157,7 +157,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="questionNine">Question Nine</label>
+            <label for="questionNine">You enjoy listening to hard rock and heavy metal music.</label>
             <select class="form-control" id="questionNineSelect">
                 <option>1</option>
                 <option>2</option>
@@ -172,7 +172,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="questionTen">Question Ten</label>
+            <label for="questionTen">You prefer to go on adventurous trips and vacations in new destinations.</label>
             <select class="form-control" id="questionTenSelect">
                 <option>1</option>
                 <option>2</option>
@@ -247,7 +247,9 @@
                 return false;
             }
 
-
+            // alert("Your match for a friend is:\n" + data);
         });
+
+        return false;
     });
 </script>

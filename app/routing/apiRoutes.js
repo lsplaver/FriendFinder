@@ -14,7 +14,7 @@ module.exports = function (app) {
 
         var totalDifferences = {
             name: "",
-            totalDifference: ""
+            totalDifference: -999
         };
         for (var i = 0; i < newUser.scores.length; i++) {
             newUser.scores[i] = Number(newUser.scores[i]);
@@ -23,7 +23,12 @@ module.exports = function (app) {
         console.log("newUser after converting scores to numbers \n");
         console.log(newUser);
 
-        var tempResults = []; //[friends.length];
+        // var tempResults = [totalDifferences]; //[friends.length];
+        var tempName = [];
+        tempName.length(friends.length); //.valueOf(0); //: friends.length;
+        var tempDiff = [];
+        tempDiff.length(friends.length);
+        var tempResults = {tempName, tempDiff};
         // tempResults
 
         // var populateTempResults = function(){}, determineResults = function(){}, populateTempResults2 = function(){};
@@ -33,28 +38,36 @@ module.exports = function (app) {
 
         var populateTempResults3 = function () {
             if (resultsPassed === false) {
-                console.log(totalDifferences);
+                if (x >= tempResults.length) {
+                    // var tempInflateResults = {};
+                    // tempInflateResults = tempResults[x - 1];
+                    // tempResults.push(tempInflateResults);
+                    tempResults.push(totalDifferences);
+                }
+                // console.log(totalDifferences);
                 console.log("tempResults at start of populateTempResults3");
                 console.log(tempResults);
 
                 console.log("friends[" + x + "].name is: " + friends[x].name);
                 console.log("tempResults before setting tempDifferences.name = friends[x].name");
                 console.log(tempResults);
-                totalDifferences.name = friends[x].name;
+                // totalDifferences.name = friends[x].name;
+                tempResults[x].name = friends[x].name;
                 console.log("tempResults after setting tempDifferences.name = friendsa[x].name");
                 console.log(tempResults);
                 console.log("totalDifferences is: ");
-                console.log(totalDifferences);
+                // console.log(totalDifferences);
                 console.log("tempResults before setting tempDifferences.difference = individualDifferences");
                 console.log(tempResults);
-                totalDifferences.totalDifference = individualDifferences;
+                // totalDifferences.totalDifference = individualDifferences;
+                tempResults[x].totalDifference = individualDifferences;
                 console.log("tempResults after setting tempDifferences.difference = individualDifferences");
                 console.log(tempResults);
-                console.log("the updates totalDifferences.totalDifference is: " + totalDifferences.totalDifference);
+                // console.log("the updates totalDifferences.totalDifference is: " + totalDifferences.totalDifference);
                 console.log("value of tempResults before push");
                 console.log(tempResults);
                 console.log("the current length of tempResults before the push: " + tempResults.length);
-                tempResults.push(totalDifferences);
+                // tempResults.push(totalDifferences);
                 console.log("tempResults after pushing totalDifferences");
                 console.log(tempResults);
                 console.log("before incrementing x: " + x);

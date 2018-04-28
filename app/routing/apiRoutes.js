@@ -23,7 +23,7 @@ module.exports = function (app) {
         console.log("newUser after converting scores to numbers \n");
         console.log(newUser);
 
-        var tempResults = [0]; //[friends.length];
+        var tempResults = []; //[friends.length];
         // tempResults
 
         // var populateTempResults = function(){}, determineResults = function(){}, populateTempResults2 = function(){};

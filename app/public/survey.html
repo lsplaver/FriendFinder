@@ -1,34 +1,253 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Survey</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
-            crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
-            crossorigin="anonymous"></script>
-        <!-- <script src="main.js"></script> -->
-    </head>
-    <body>
-    <!-- <div class="jumbotron mx-auto" style="width: 75%"> -->
-        <div class="card" style="width: 75%">
-        <h1 class="display-4 text-center">Friend Finder Survey Questions</h1>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Survey</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script> -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+    <!-- <script src="main.js"></script> -->
+</head>
+
+<body>
+    <!-- <div class="card mx-auto" style="width: 75%"> -->
+    <!-- <h1 class="card-header text-center">Friend Finder Survey Questions</h1> -->
+    <!-- <hr class="my-4"> -->
+    <form class="mx-auto" style="width: 75%">
+        <div class="form-header text-center">
+            <h1>Friend Finder Survey Questions</h1>
+        </div>
         <hr class="my-4">
-        <p class="lead">This app will ask you several questions and then match you with a potential friend.</p>
-        <p>You can begin the process by taking our survey.</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button" id="btnSurvey">Survey</a>
-    </div>
+        <h4>Tell us about yourself</h4>
+        <hr class="my-4">
+        <!-- <form> -->
+        <div class="form-group">
+            <label for="userName">Name</label>
+            <input type="text" class="form-control" id="userName" placeholder="John Smith" required>
+        </div>
+        <div class="form-group">
+            <label for="userPhoto">Your Photo</label>
+            <input type="url" class="form-control" id="userPhoto" placeholder="http://yoursite.com/yourpicture" required wtx-context="">
+        </div>
+        <div class="form-group">
+            <label for="questionOne">Question One</label>
+            <select class="form-control" id="questionOneSelect">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="questionTwo">Question Two</label>
+            <select class="form-control" id="questionTwoSelect">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="questionThree">Question Three</label>
+            <select class="form-control" id="questionThreeSelect">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="questionFour">Question Four</label>
+            <select class="form-control" id="questionFourSelect">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="questionFive">Question Five</label>
+            <select class="form-control" id="questionFiveSelect">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="questionSix">Question Six</label>
+            <select class="form-control" id="questionSixSelect">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="questionSeven">Question Seven</label>
+            <select class="form-control" id="questionSevenSelect">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="questionEight">Question Eight</label>
+            <select class="form-control" id="questionEightSelect">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="questionNine">Question Nine</label>
+            <select class="form-control" id="questionNineSelect">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="questionTen">Question Ten</label>
+            <select class="form-control" id="questionTenSelect">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+            </select>
+        </div>
+        <hr class="my-4">
+        <button class="btn btn-primary btn-lg submit" type="submit" id="btnSubmit">Submit</button>
+        <br />
+        <br />
+        <hr class="my-4">
+    </form>
+    <!-- </div> -->
 </body>
 <footer class="footer">
     <div class="container" style="width: 75%">
         <p>
-            <a href="http://localhost:3000/api/friends">API Friends List</a> | 
+            <a href="http://localhost:3000/api/friends">API Friends List</a> |
             <a href="https://github.com/lsplaver/FriendFinder">FriendFinder on GitHub</a>
         </p>
     </div>
 </footer>
+
 </html>
+
+<script type="text/javascript">
+    $("#btnSubmit").on("click", function(event) {
+        event.preventDefault();
+        var answerOne = $("#questionOneSelect").select().val(), answerTwo = $("#questionTwoSelect").select().val(), answerThree = $("#questionThreeSelect").select().val(), answerFour = $("#questionFourSelect").select().val(), answerFive = $("#questionFiveSelect").select().val(), answerSix = $("#questionSixSelect").select().val(), answerSeven = $("#questionSevenSelect").select().val(), answerEight = $("#questionEightSelect").select().val(), answerNine = $("#questionNineSelect").select().val(), answerTen = $("#questionTenSelect").select().val();
+        console.log(answerOne);
+        console.log(answerTwo);
+        console.log(answerThree);
+        console.log(answerFour);
+        console.log(answerFive);
+        console.log(answerSix);
+        console.log(answerSeven);
+        console.log(answerEight);
+        console.log(answerNine);
+        console.log(answerTen);
+        var newUser = {
+            name: $("#userName").val().trim(),
+            photo: $("#userPhoto").val().trim(),
+            scores: [
+                answerOne,
+                answerTwo,
+                answerThree,
+                answerFour,
+                answerFive,
+                answerSix,
+                answerSeven,
+                answerEight,
+                answerNine,
+                answerTen
+            ]
+        };
+
+        console.log(newUser);
+
+        var currentURL = window.location.origin;
+
+        $.post(currentURL + "/api/friends", newUser, function(data) {
+            console.log(data);
+
+            if ((data === null) || (data === undefined) || (data === "") || (data === []) || (data === {})) {
+                return false;
+            }
+
+
+        });
+    });
+</script>

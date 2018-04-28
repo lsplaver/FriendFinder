@@ -1,8 +1,8 @@
 var friends = [
     {
-        "name": "Jeff",
-        "photo": "placeholder",
-        "scores": [
+        name: "Jeff",
+        photo: "placeholder",
+        scores: [
             0,
             1,
             2,
@@ -16,9 +16,9 @@ var friends = [
         ]
     },
     {
-        "name": "Dan",
-        "phote": "placeholder2",
-        "scores": [
+        name: "Dan",
+        phote: "placeholder2",
+        scores: [
             10,
             20,
             30,

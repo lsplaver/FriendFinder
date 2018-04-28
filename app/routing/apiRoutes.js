@@ -25,9 +25,11 @@ module.exports = function (app) {
 
         // var tempResults = [totalDifferences]; //[friends.length];
         var tempName = [];
-        tempName.length(friends.length); //.valueOf(0); //: friends.length;
+        var aLength = -9999;
+        aLength = friends.length;
+        tempName.length = aLength; // friends.length; //.valueOf(0); //: friends.length;
         var tempDiff = [];
-        tempDiff.length(friends.length);
+        tempDiff.length = aLength; // friends.length;
         var tempResults = {tempName, tempDiff};
         // tempResults
 
@@ -38,12 +40,12 @@ module.exports = function (app) {
 
         var populateTempResults3 = function () {
             if (resultsPassed === false) {
-                if (x >= tempResults.length) {
-                    // var tempInflateResults = {};
-                    // tempInflateResults = tempResults[x - 1];
-                    // tempResults.push(tempInflateResults);
-                    tempResults.push(totalDifferences);
-                }
+                // if (x >= tempResults.tempDiff.length) {
+                //     // var tempInflateResults = {};
+                //     // tempInflateResults = tempResults[x - 1];
+                //     // tempResults.push(tempInflateResults);
+                //     tempResults.push(totalDifferences);
+                // }
                 // console.log(totalDifferences);
                 console.log("tempResults at start of populateTempResults3");
                 console.log(tempResults);
@@ -52,7 +54,7 @@ module.exports = function (app) {
                 console.log("tempResults before setting tempDifferences.name = friends[x].name");
                 console.log(tempResults);
                 // totalDifferences.name = friends[x].name;
-                tempResults[x].name = friends[x].name;
+                tempResults.tempName[x] = friends[x].name;
                 console.log("tempResults after setting tempDifferences.name = friendsa[x].name");
                 console.log(tempResults);
                 console.log("totalDifferences is: ");
@@ -60,13 +62,13 @@ module.exports = function (app) {
                 console.log("tempResults before setting tempDifferences.difference = individualDifferences");
                 console.log(tempResults);
                 // totalDifferences.totalDifference = individualDifferences;
-                tempResults[x].totalDifference = individualDifferences;
+                tempResults.tempDiff[x] = individualDifferences;
                 console.log("tempResults after setting tempDifferences.difference = individualDifferences");
                 console.log(tempResults);
                 // console.log("the updates totalDifferences.totalDifference is: " + totalDifferences.totalDifference);
                 console.log("value of tempResults before push");
                 console.log(tempResults);
-                console.log("the current length of tempResults before the push: " + tempResults.length);
+                console.log("the current length of tempResults before the push: " + tempDiff.length);
                 // tempResults.push(totalDifferences);
                 console.log("tempResults after pushing totalDifferences");
                 console.log(tempResults);
@@ -185,30 +187,35 @@ module.exports = function (app) {
 
         var determineResults = function () {
             if (resultsPassed === false) {
-                // for (var x = 0; x < tempResults.length; x++) {
-                console.log("the value of tempRsults.length at beinging of determineResults() is: " + tempResults.length);
+                // for (var x = 0; x < tempResults.tempDiff.length; x++) {
+                console.log("the value of tempRsults.length at beinging of determineResults() is: " + tempDiff.length);
                 console.log("the current value of tempResults is: ");
                 console.log(tempResults);
-                if ((z + 1) < tempResults.length) {
+                if ((z + 1) < tempDiff.length) {
                     console.log("z is: " + z);
-                    console.log("current length of tempResults before inner if: " + tempResults.length);
-                    if ((tempResults[z].totalDifference < tempResults[z + 1].totalDifference) && ((z + 1) >= (tempResults.length - 1))) {
-                        tempResults.slice(z, z);
-                        console.log("tempResults.length after slice: " + tempResults.length);
+                    console.log("current length of tempResults before inner if: " + tempDiff.length);
+                    if ((tempResults.tempDiff[z] < tempResults.tempDiff[z + 1]) && ((z + 1) <= (tempDiff.length - 1))) {
+                        console.log("This right side greater");
+                        tempResults.tempDiff.splice(z, 1);
+                        tempResults.tempName.splice(z, 1);
+                        console.log("tempResults.tempDiff.length after slice: " + tempDiff.length);
                         console.log("new value of tempResults is:");
                         console.log(tempResults);
                         console.log("new value of x is: " + z);
                     }
 
-                    else if ((tempResults[z].totalDifference > tempResults[z + 1].totalDifference) && ((z + 1) >= (tempResults.length - 1))) {
-                        tempResults.slice((z + 1), (z + 1));
-                        console.log("tempResults.length after slice: " + tempResults.length);
+                    else if ((tempResults.tempDiff[z] > tempResults.tempDiff[z + 1]) && ((z + 1) <= (tempDiff.length - 1))) {
+                        console.log("This left side greater");
+                        tempResults.tempDiff.splice((z + 1),1);
+                        tempResults.tempName.splice((z + 1), 1);
+                        console.log("tempResults.tempDiff.length after slice: " + tempDiff.length);
                         console.log("new value of tempResults is:");
                         console.log(tempResults);
                         console.log("new value of x is: " + z);
                     }
 
                     else {
+                        console.log("Neither side greater");
                         z++;
                     }
                     determineResults();

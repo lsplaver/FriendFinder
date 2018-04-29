@@ -112,7 +112,8 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="questionSix">You often prefer a nice evening by yourself or with a small group of close friends instead of a loud or large outing.</label>
+            <label for="questionSix">You often prefer a nice evening by yourself or with a small group of close friends instead of a loud or large
+                outing.</label>
             <select class="form-control" id="questionSixSelect">
                 <option>1</option>
                 <option>2</option>
@@ -127,7 +128,8 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="questionSeven">You enjoy taking apart / building computers and other tech hardware along with troubleshooting and maintaining them.</label>
+            <label for="questionSeven">You enjoy taking apart / building computers and other tech hardware along with troubleshooting and maintaining
+                them.</label>
             <select class="form-control" id="questionSevenSelect">
                 <option>1</option>
                 <option>2</option>
@@ -193,6 +195,31 @@
         <hr class="my-4">
     </form>
     <!-- </div> -->
+    <div class="modal fade" id="postingModal" tabindex="-1" role="dialog" aria-labelledby="postingModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="postingModalLabel">Friend Suggestion</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Here is your suggested friend from our site that is the best match for you.</p>
+                    <div>
+                        <p id="friendName">empty text</p>
+                    </div>
+                    <div>
+                        <img id="friendPhoto" src="" alt="">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <footer class="footer">
     <div class="container" style="width: 75%">
@@ -206,7 +233,7 @@
 </html>
 
 <script type="text/javascript">
-    $("#btnSubmit").on("click", function(event) {
+    $("#btnSubmit").on("click", function (event) {
         event.preventDefault();
         var answerOne = $("#questionOneSelect").select().val(), answerTwo = $("#questionTwoSelect").select().val(), answerThree = $("#questionThreeSelect").select().val(), answerFour = $("#questionFourSelect").select().val(), answerFive = $("#questionFiveSelect").select().val(), answerSix = $("#questionSixSelect").select().val(), answerSeven = $("#questionSevenSelect").select().val(), answerEight = $("#questionEightSelect").select().val(), answerNine = $("#questionNineSelect").select().val(), answerTen = $("#questionTenSelect").select().val();
         console.log(answerOne);
@@ -240,14 +267,28 @@
 
         var currentURL = window.location.origin;
 
-        $.post(currentURL + "/api/friends", newUser, function(data) {
+        $.post(currentURL + "/api/friends", newUser, function (data) {
             console.log(data);
 
             if ((data === null) || (data === undefined) || (data === "") || (data === []) || (data === {})) {
                 return false;
             }
 
-            alert("Your match for a friend is:\n" + data);
+            // data.stringify.json;
+
+            // alert("Your match for a friend is:\n" + String(data).valueOf());
+
+            var dataName = data[0].toString();
+            console.log("data[0] is: " + dataName);
+            $("#friendName").text(dataName);
+                console.log("the text value of #friendName: ");// + $("#friendName").text());
+            $("#postingModal").modal("show");
+            $("#friendPhoto").attr("src", data[1]).attr("alt", data[0]);
+            $("#postingModal").on("show.bs.modal", function(event) {
+                // $("#friendName").text(dataName);
+                // console.log("the text value of #friendName: ");// + $("#friendName").text());
+                // $("#friendPhoto").attr("src", /*String(data[0]).toString()*/ dataName).attr("alt", data[0]);
+            });
         });
 
         return false;

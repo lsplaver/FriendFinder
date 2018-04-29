@@ -169,7 +169,15 @@ module.exports = function (app) {
                 console.log("final value of tempResults is:");
                 console.log(tempResults);
 
-                var results = tempResults;
+                var results = []; // = tempResults;
+                results.length = 2;
+                var aName = tempResults.tempName[0];
+                friends.findIndex
+                var tempArray = [];
+                tempArray = friends.filter(function(aName) {
+                    results[0] = friends[tempArray.length].name;
+                    results[1] = friends[tempArray.length].photo;
+                });
                 passed = true;
 
                 console.log("value of results is: ");

@@ -1,0 +1,26 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "Friend Finder app using Node JS and Express Servers to match you with new potential friends",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lsplaver/FriendFinder.git"
+  },
+  "author": "Lawrence Splaver",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lsplaver/FriendFinder/issues"
+  },
+  "homepage": "https://friend-finder-lawrence.herokuapp.com/ | https://github.com/lsplaver/FriendFinder#readme"
+}

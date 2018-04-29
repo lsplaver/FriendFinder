@@ -28,7 +28,7 @@ module.exports = function (app) {
         tempName.length = aLength;
         var tempDiff = [];
         tempDiff.length = aLength;
-        var tempResults = {tempName, tempDiff};
+        var tempResults = { tempName, tempDiff };
 
         var x = 0, y = 0, z = 0, individualDifferences = 0;
 
@@ -58,6 +58,7 @@ module.exports = function (app) {
                 console.log("before incrementing x: " + x);
                 x++;
                 console.log("after incrementing x: " + x);
+                individualDifferences = 0;
                 populateTempResults();
             }
 
@@ -116,14 +117,47 @@ module.exports = function (app) {
                 console.log(tempResults);
 
                 var results = [];
-                results.length = 2;
-                var aName = tempResults.tempName[0];
-                friends.findIndex
-                var tempArray = [];
-                tempArray = friends.filter(function(aName) {
-                    results[0] = friends[tempArray.length].name;
-                    results[1] = friends[tempArray.length].photo;
-                });
+                // results.length = 2;
+                var aName = "";
+                for (var d = 0; d < tempResults.tempName.length; d++) {
+                    aName = tempResults.tempName[d];
+                    // // friends.findIndex
+                    // console.log("aName: " + aName);
+                    // var tempArray = [];
+                    // tempArray = friends.filter(function (aName) {
+                    //     results[0] = friends[tempArray.length].name;
+                    //     results[1] = friends[tempArray.length].photo;
+                    // });
+                    function checkFriendsResult(friends) {
+                        return friends.name === aName;
+                    }
+
+                    var resultLocation = friends.findIndex(checkFriendsResult);
+
+                    results.push(friends[resultLocation].name);
+                    results.push(friends[resultLocation].photo);
+                }
+
+                if (results.length < 2)
+                {
+                    var randNum = Math.floor(Math.random() * (results.length - 1));
+
+                    var multipleResults = [];
+                    if (randNum % 2 === 0) {
+                        multipleResults.push(results[randNum]);
+                        multipleResults.push(results[randNum + 1]);
+                        results = [];
+                    }
+
+                    else {
+                        multipleResults.push(results[randNum - 1]);
+                        multipleResults.push(results[randNum]);
+                        results = []
+                    }
+
+                    results.push(multipleResults[0]);
+                    results.push(multipleResults[1]);
+                }
                 passed = true;
 
                 console.log("value of results is: ");
@@ -135,6 +169,8 @@ module.exports = function (app) {
                 console.log("results already passed");
             }
 
+            // req.body = newUser;
+            friends.push(req.body); //newUser);
             return res.json(results);
         };
 
@@ -146,7 +182,7 @@ module.exports = function (app) {
                 if ((z + 1) < tempDiff.length) {
                     console.log("z is: " + z);
                     console.log("current length of tempResults before inner if: " + tempDiff.length);
-                    if ((tempResults.tempDiff[z] < tempResults.tempDiff[z + 1]) && ((z + 1) <= (tempDiff.length - 1))) {
+                    if ((tempResults.tempDiff[z] > tempResults.tempDiff[z + 1]) && ((z + 1) <= (tempDiff.length - 1))) {
                         console.log("This right side greater");
                         tempResults.tempDiff.splice(z, 1);
                         tempResults.tempName.splice(z, 1);
@@ -156,9 +192,9 @@ module.exports = function (app) {
                         console.log("new value of x is: " + z);
                     }
 
-                    else if ((tempResults.tempDiff[z] > tempResults.tempDiff[z + 1]) && ((z + 1) <= (tempDiff.length - 1))) {
+                    else if ((tempResults.tempDiff[z] < tempResults.tempDiff[z + 1]) && ((z + 1) <= (tempDiff.length - 1))) {
                         console.log("This left side greater");
-                        tempResults.tempDiff.splice((z + 1),1);
+                        tempResults.tempDiff.splice((z + 1), 1);
                         tempResults.tempName.splice((z + 1), 1);
                         console.log("tempResults.tempDiff.length after slice: " + tempDiff.length);
                         console.log("new value of tempResults is:");

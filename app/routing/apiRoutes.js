@@ -117,17 +117,10 @@ module.exports = function (app) {
                 console.log(tempResults);
 
                 var results = [];
-                // results.length = 2;
+
                 var aName = "";
                 for (var d = 0; d < tempResults.tempName.length; d++) {
                     aName = tempResults.tempName[d];
-                    // // friends.findIndex
-                    // console.log("aName: " + aName);
-                    // var tempArray = [];
-                    // tempArray = friends.filter(function (aName) {
-                    //     results[0] = friends[tempArray.length].name;
-                    //     results[1] = friends[tempArray.length].photo;
-                    // });
                     function checkFriendsResult(friends) {
                         return friends.name === aName;
                     }
@@ -169,8 +162,7 @@ module.exports = function (app) {
                 console.log("results already passed");
             }
 
-            // req.body = newUser;
-            friends.push(req.body); //newUser);
+            friends.push(req.body);
             return res.json(results);
         };
 
